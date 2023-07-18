@@ -10,10 +10,10 @@ elastisearchPassword = "" # elastic password
 elastisearchIndex = "" #index elastic
 
 [database]
-server = "" # server IP
+server = "127.0.0.1" # server IP
 port = "5299" # server port
-database = "" # server DB Name
-user = "" # server USER
+database = "syncDB" # server DB Name
+user = "sa" # server USER
 password = "" # server credentials
 
 [output]
