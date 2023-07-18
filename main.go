@@ -45,11 +45,11 @@ type database struct {
 }
 
 type elastisearchDB struct {
-        ElasticServer     string
-        ElasticServerPort string
-        ElasticUserName   string
-        ElasticPassword   string
-        ESIndex           string
+        elastisearchServer     string
+        elastisearchPort string
+        elastisearchUsername   string
+        elastisearchPassword   string
+        elastisearchIndex           string
 }
 
 type appconfig struct {
@@ -77,9 +77,9 @@ func GetESClient() (*elastic.Client, error) {
         }
         //fmt.Println(conf)
 
-        client, err := elastic.NewClient(elastic.SetURL("http://"+conf.elastisearchDB.ElasticServer+":"+conf.elastisearchDB.ElasticServerPort),
+        client, err := elastic.NewClient(elastic.SetURL("http://"+conf.elastisearchDB.elastisearchServer+":"+conf.elastisearchDB.elastisearchPort),
                 elastic.SetSniff(false),
-                elastic.SetHealthcheck(false), elastic.SetBasicAuth(conf.elastisearchDB.ElasticUserName, conf.elastisearchDB.ElasticPassword))
+                elastic.SetHealthcheck(false), elastic.SetBasicAuth(conf.elastisearchDB.elastisearchUsername, conf.elastisearchDB.elastisearchPassword))
         fmt.Println("ELastic-Search Connection Sucessfully!")
         logger.InfoLogger.Println("ELastic-Search Connection Sucessfully!")
         return client, err
@@ -297,7 +297,7 @@ func StoneESSyc(db *sql.DB, es *elastic.Client) {
                         logger.InfoLogger.Println("DATA = ", s.data)
                         logger.InfoLogger.Println("---------------------------------------------------------------")
                         var DataSet = elasticData{ID: s.ID, data: s.data}
-                        req := elastic.NewBulkUpdateRequest().Index(conf.elastisearchDB.ESIndex).Type("_doc").Id(strconv.Itoa(int(s.ID))).Doc(DataSet).DocAsUpsert(true) // s.id means which id do you want to upsert.
+                        req := elastic.NewBulkUpdateRequest().Index(conf.elastisearchDB.elastisearchIndex).Type("_doc").Id(strconv.Itoa(int(s.ID))).Doc(DataSet).DocAsUpsert(true) // s.id means which id do you want to upsert.
                         bulkRequest = bulkRequest.Add(req)
                         lastoffset = s.ID
                 }

@@ -3,11 +3,11 @@ maxLimit = "800"
 timeOut = "3"
 
 [elastisearchDB]
-elasticserver ="127.0.0.1" # elastic ip
-elasticserverport ="9200" # elastic port
-elasticusername = "elastic" # elastic user
-elasticpassword = "" # elastic password
-esindex = "" #index elastic
+elastisearchServer ="127.0.0.1" # elastic ip
+elastisearchPort ="9200" # elastic port
+elastisearchUsername = "elastic" # elastic user
+elastisearchPassword = "" # elastic password
+elastisearchIndex = "" #index elastic
 
 [database]
 server = "" # server IP
