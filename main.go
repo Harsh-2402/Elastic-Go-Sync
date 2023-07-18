@@ -23,52 +23,53 @@ import (
         "bytes"
 		
         
-)
+	)
+type goConfig struct {
+		maxLimit   		string
+		timeOut 		string
+		ToRecord      	string
+}
 
 type Config struct {
-        Database   database
+        Database   		database
         elastisearchDB  elastisearchDB
-        goConfig goConfig
-}
-
-type goConfig struct {
-        maxLimit   string
-        timeOut string
-        ToRecord      string
-}
-
-type database struct {
-        Server   string
-        Port     string
-        Database string
-        User     string
-        Password string
+        goConfig 		goConfig
 }
 
 type elastisearchDB struct {
-        elastisearchServer     string
-        elastisearchPort string
-        elastisearchUsername   string
-        elastisearchPassword   string
-        elastisearchIndex           string
+	elastisearchServer     string
+	elastisearchPort 	   string
+	elastisearchUsername   string
+	elastisearchPassword   string
+	elastisearchIndex      string
 }
+
+type database struct {
+        Server   	string
+        Port     	string
+        Database 	string
+        User     	string
+        Password 	string
+}
+
+
 
 type appconfig struct {
         maxLimit   string
-        timeOut string
+        timeOut    string
 }
 
+//elasticData data
+type elasticData struct {
+		ID        int    `json:"ID"`
+		data      int   `json:"data"`
+}
 //SQLData data
 type SQLData struct {
         ID               int    `json:"id"`
         data             int    `json:"data"`
 }
 
-//elasticData data
-type elasticData struct {
-        ID        int    `json:"ID"`
-        data      int   `json:"data"`
-}
 
 //GetESClient ES Connection
 func GetESClient() (*elastic.Client, error) {
