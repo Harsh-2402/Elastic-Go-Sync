@@ -1,13 +1,13 @@
 //* Author : HARSH PATEL
 
-package sync_es
+package main
 
 import (
 
-		logger "../lib"
-		_ "github.com/denisenkom/go-mssqldb"
-		"github.com/BurntSushi/toml"
-		"github.com/olivere/elastic"
+        logger "../lib"
+        _ "github.com/denisenkom/go-mssqldb"
+        "github.com/BurntSushi/toml"
+        "github.com/olivere/elastic"
         "context"
         "database/sql"
         "fmt"
