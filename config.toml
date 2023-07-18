@@ -1,0 +1,22 @@
+[goConfig]
+maxLimit = "800"
+timeOut = "3"
+
+[elastisearchDB]
+elasticserver ="127.0.0.1" # elastic ip
+elasticserverport ="9200" # elastic port
+elasticusername = "elastic" # elastic user
+elasticpassword = "" # elastic password
+esindex = "" #index elastic
+
+[database]
+server = "" # server IP
+port = "5299" # server port
+database = "" # server DB Name
+user = "" # server USER
+password = "" # server credentials
+
+[output]
+directory = "./output"
+format = "toml"
+
