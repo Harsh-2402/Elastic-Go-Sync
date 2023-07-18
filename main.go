@@ -3,25 +3,26 @@
 package sync_es
 
 import (
-        "bytes"
+
+		logger "../lib"
+		_ "github.com/denisenkom/go-mssqldb"
+		"github.com/BurntSushi/toml"
+		"github.com/olivere/elastic"
         "context"
         "database/sql"
-        "encoding/json"
-        "errors"
         "fmt"
         "io/ioutil"
-        "log"
         "os"
         "reflect"
-        "strconv"
         "strings"
-        "time"
-
-        "github.com/BurntSushi/toml"
-        "github.com/olivere/elastic"
-
-        logger "../lib"
-        _ "github.com/denisenkom/go-mssqldb"
+        "time"	
+        "encoding/json"
+        "errors"
+        "log"
+        "strconv"
+        "bytes"
+		
+        
 )
 
 type Config struct {
